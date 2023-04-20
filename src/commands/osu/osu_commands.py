@@ -15,6 +15,7 @@ class osuCommands(commands.Cog):
 
         content = content.replace(command_substring, "")
         print(content)
+        print("")
         Target_Channel_ID = ctx.channel.id
         user_data = api.user(content, mode="osu", key="username")
 

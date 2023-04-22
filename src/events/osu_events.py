@@ -53,7 +53,6 @@ class osuEvent(commands.Cog):
 
     # Function to insult users
     async def insult(self, message):
-
         #await client.process_commands(message)
         channel = message.channel
 

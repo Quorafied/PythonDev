@@ -9,15 +9,11 @@ class onMsg(commands.Cog):
     """ On_Message event handler """
     @commands.Cog.listener()
     async def on_message(self, message):
-        print(message.content)
         OsuEvent = self.bot.get_cog("osuEvent")
         if message.author.id != function.botId:
-            print(function.botId)
             # If a message is not a command, await the following
             if not message.content.startswith(self.bot.command_prefix):
-                print("insult and choke should lit")
-                await OsuEvent.insult(message)
+                pass
+                # Disabled for now. await OsuEvent.insult(message)
                 await OsuEvent.chokeCheck(message)
-        
-        if message.content == "doit":
-            print('doit')
+    

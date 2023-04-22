@@ -21,9 +21,6 @@ class Admin(commands.Cog):
                 await target_channel.send("Quora is taking me offline :(")
         ui.shouldStop = True
 
-        ws.toSend_Message = "Quora is taking me offline :()"
+        ws.toSend_Message = "Quora is taking me offline :("
         ws.send_response(ui.targetChannelId)
-
-        ui.stop()
-
         

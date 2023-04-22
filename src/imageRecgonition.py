@@ -70,7 +70,7 @@ class Message():
 class WebScraper():
     def __init__(self):
         self.toSend_Message = ""
-
+        self.wait = False
     def check_for_previousMessage(self, message):
         if message.content == self.toSend_Message:
             return False
@@ -83,6 +83,9 @@ class WebScraper():
             print("Message sent succesfully")
 
     def retrieve_messages(self, channelid):
+        if self.wait == True:
+            return False
+        
         headers = {
             'Authorization': f'{ui.userToken}'
         }
@@ -102,6 +105,7 @@ class WebScraper():
     
 
     def sendMsg_toBot(self, channelid, content):
+        self.wait = True
         headers = {
             "Authorization": f"{ui.userToken}",
             "Content-Type": "application/json"
@@ -122,6 +126,8 @@ class WebScraper():
         response = requests.post(f"https://discord.com/api/v9/channels/{str(channelid)}/messages", headers=headers, json=payload)
 
         self.check_statusCode(response)
+        time.sleep(1)
+        self.wait = False
         
 
 ws = WebScraper()

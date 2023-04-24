@@ -22,6 +22,7 @@ class UserInterface():
         self.dynoId = 155149108183695360
         self.meeId = 159985870458322944
         self.ownId = 1058522888975691836
+        self.owoId = 289066747443675143
         self.botIds = [self.botId, self.dankId, self.dynoId, self.meeId, self.ownId]
 
         self.userToken = 'MTA1ODUyMjg4ODk3NTY5MTgzNg.GWF4Yz.mYo14ymuociw45ZMKPDuX2hUgKnUtszXAzjtBQ'

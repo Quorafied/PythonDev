@@ -32,6 +32,8 @@ class functions():
         self.running = False
         self.uptime = 0
         self.startTime = time.time()
+        self.needPP = False
+        self.needPPembed = ""
         client.remove_command("help")
 
         self.botId = 861370829253509133
@@ -90,7 +92,7 @@ async def send_start_message():
 @client.event
 async def on_ready():
     function.onStart()
-    await send_start_message()
+    #await send_start_message()
     ui.running = True
     print("Ready to attack!")
     # Change bot nickname in the first guild it's connected to

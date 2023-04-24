@@ -13,7 +13,13 @@ class onMsg(commands.Cog):
         if message.author.id != function.botId:
             # If a message is not a command, await the following
             if not message.content.startswith(self.bot.command_prefix):
-                pass
-                # Disabled for now. await OsuEvent.insult(message)
+                # await OsuEvent.insult(message)
                 await OsuEvent.chokeCheck(message)
-    
+        
+        #if message.author.id != ui.botId or message.author.id != 295339593966813184:
+        #    await message.delete()
+        #    await message.channel.send(f"{message.author.nick}..\nRelax, Cowboy!")
+
+        if message.author.id == ui.owoId and function.needPP == True:
+            function.needPPembed = message.embeds[0]
+            print("\n\nSaved embed to function.needPPembed")

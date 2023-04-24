@@ -10,12 +10,10 @@ client_secret = "JbqaosWSn9HeBgENlAuzYUWQSLLc48MKXbN7LbPe"
 
 api = Ossapi(client_id, client_secret)
 
-print(api.user(31987131, mode="osu").username)
-print(api.beatmap(221777).id)
-
-print(api.beatmap(221777).max_combo)
-
-
+#print(api.user(31987131, mode="osu").username)
+#print(api.beatmap(221777).id)
+#
+#print(api.beatmap(221777))
 #user_data = api.user("OpBean", mode="osu", key="username")
 #
 #user_scores_data = api.user_scores(user_data.id, type="best", mode="osu", limit=5)
@@ -24,6 +22,13 @@ print(api.beatmap(221777).max_combo)
 
 def getScore_max_combo(score):
     return api.beatmap(score.beatmap.id).max_combo
+
+#att = api.score(221777)
+
+
+def getPP():
+    score = api.score(mode="osu", score_id=22649116355)
+    
 
 def handleGrade(grade):
     rank = grade

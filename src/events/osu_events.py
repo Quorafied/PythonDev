@@ -21,35 +21,22 @@ class osuEvent(commands.Cog):
                 embed = message.embeds[0]
                 #await message.channel.send(embed=embed)
 
-                if embed.fields:
-                    # Check if the embed has a field with a specific name
-                    for field in embed.fields:
-
-                        # Check if a field's name has a specific description
-                        if "**If FC**: PP" in field.name:
-                            # Sends a choke message and set found as True
-                            found = True
-                            await message.channel.send("A choke, what a surprise..")
-                            await channel.send(random.choice(quotes))
-                            break
-                    
-                    # If the name with the description has not been found, say the opposite.
-                    if found == False:
-                        found = True
-                        await message.channel.send("Nice S rank!")
-
-                # Description was not found within the message of the specific user.
-                else:
-                    print("No fields")
-                
-                    # If description not found yet, find if there is a choke in another specific user.
-                    if found == False:
-                        if "FC" in embed.description:
-                            found = True
-                            await message.channel.send("A choke, what a surprise..")
+                # BathBot
+                if message.author.id == 297073686916366336 and embed.fields:
+                    try:
+                        if embed.fields[6].name == '**If FC**: PP':
                             await channel.send(random.choice(quotes))
                         else:
-                            await message.channel.send("Nice S rank!")
+                            await channel.send("Nice S rank!")
+                    except IndexError:
+                        pass
+
+                elif message.author.id == 289066747443675143: 
+                    if ":rankingS:" not in embed.description:
+                        await channel.send(random.choice(quotes))
+                    elif ":rankingS:" in embed.description:
+                        await channel.send("Nice S rank!")
+
 
     # Function to insult users
     async def insult(self, message):

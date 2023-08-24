@@ -29,15 +29,11 @@ class UserInterface():
 
    
     def checkAuthor(self, id):
-        print(f"id given: {id}")
-        print(f"botIds: {self.botIds}")
         if int(id) not in self.botIds:
             self.allow = True
-            print("allowed on")
+
         else: 
             self.allow = False
-            print("allowed off")
-        print(f"self.allow: {self.allow}")
 
     def check_forNewMessage(self):
         message = ws.retrieve_messages(self.targetChannelId)
@@ -55,6 +51,7 @@ class UserInterface():
             return False
     
         return message
+
 
     def send_messageToBot(self, message):
         if message is False:
@@ -77,6 +74,16 @@ class WebScraper():
             return False
         else: return True
 
+
+    def check_forCommand(self, message):
+        commands = ["q.help", "q.status", "q.rs", "q.osu", "q.top", "q.osulink"]
+        first_word = message.split()[0]
+        if first_word in commands:
+            return True
+        else:
+            return False
+            
+
     def check_statusCode(self, response):
         if response.status_code != 200:
             print(f"Failed to send message: {response.status_code} - {response.text}")
@@ -98,6 +105,9 @@ class WebScraper():
 
         self.check_statusCode(response)
         
+        
+        if self.check_forCommand(message.content) is False:
+            return False
         if self.check_for_previousMessage(message):
             return message
         else: 
@@ -127,6 +137,7 @@ class WebScraper():
         response = requests.post(f"https://discord.com/api/v9/channels/{str(channelid)}/messages", headers=headers, json=payload)
 
         self.check_statusCode(response)
+
         time.sleep(1)
         self.wait = False
         

@@ -1,7 +1,10 @@
 quotes = ["You suck", "You're pathetic", "How do you even do that", "Uninstall", "Are you braindead?", 
           "are your parents sbilings?", "Any similarity between you and a human is purely coincidental",
         "Are you always so bad, or is it a special occasion", "We're fed up with this crap", 
-        "Did the mental hospital really let you go in this state?"]
+        "Did the mental hospital really let you go in this state?",
+        "You live in your mom’s basement you anti social f****** loser.",
+        "Suck my recently dropped nuts", "You aim like Michael J Fox on a rollercoaster.",
+        "Your teammate must be a garbage man because he's great at carrying trash."]
 
 
 

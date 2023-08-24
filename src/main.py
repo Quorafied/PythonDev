@@ -1,6 +1,5 @@
 # Import required dependencies
 from _ownLibrary import *
-import cv2 as cv
 from imageRecgonition import *
 from discord import app_commands
 import threading
@@ -35,8 +34,8 @@ class functions():
         self.needPP = False
         self.needPPembed = ""
         client.remove_command("help")
-
         self.botId = 861370829253509133
+    
 
 
     def onStart(self):
@@ -61,7 +60,6 @@ class functions():
 
         embed.add_field(name="Uptime:", value=self.show_upTime(), inline=True)
 
-        embed.add_field(name=" ", value=" ", inline=False)
 
                                 # Title            Description                 Uptime                     Uptime Value               
         ws.toSend_Message = f"**{embed.title}**\n{embed.description}\n\n**{embed.fields[0].name}**\n{embed.fields[0].value}\n\n"
@@ -106,6 +104,7 @@ from commands.administration.admin import *
 from commands.management.manage import *
 from events.onMessage import *
 from events.osu_events import *
+from commands.foxcraft.foxcraft import *
 
 async def load():
     await client.add_cog(informations(client))
@@ -116,7 +115,7 @@ async def load():
     await client.add_cog(onMsg(client))
     
     await client.add_cog(osuEvent(client))
-
+    await client.add_cog(foxcraftCog(client))
 
 
 async def main():
@@ -146,11 +145,11 @@ def doit():
 async def mainHandler():
     print("Starting gather")    
     await asyncio.gather(
-        run_in_thread(),
+        #run_in_thread(),
         main()
     )
 
 if __name__ == "__main__":
-    time.sleep(2)
-    loop.run_until_complete(mainHandler())
+    # time.sleep(2)
+    loop.run_until_complete(mainHandler()) 
 #client.run(botToken, reconnect=True)

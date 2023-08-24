@@ -76,7 +76,7 @@ db = ownDatabase()
 
 class foxcraftDatabase():
     def __init__(self):
-        self.conn = sqlite3.connect("C:/Users/Cosmin/Documents/Code/minecraft/data.db")
+        self.conn = sqlite3.connect("C:/Users/Cosmin/Documents/Code/MinecraftInfo/data.db")
         self.c = self.conn.cursor()
     
     def closeConnection(self):
